@@ -109,7 +109,7 @@ class IncorporationForm extends React.Component {
       "courseCard": this.state.courseCard,
       "blocks": objJsonB64
     }
-
+    //axios.defaults.headers.post['Content-Type'] = 'application/json';
     axios('https://classcast-198812.appspot.com/users/createCourse', {
       method: 'POST',
       mode: 'no-cors',
@@ -120,33 +120,6 @@ class IncorporationForm extends React.Component {
       withCredentials: true,
       credentials: 'same-origin',
     }).then((response) => response.data)
-
-    const options = {
-      method: 'POST',
-      crossdomain: true,
-      mode: 'no-cors',
-      credentials: 'same-origin',
-      headers: { 
-        'content-type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-        },
-      proxy: {
-        host: 'http://172.29.10.161',
-        port: '3000'
-      },
-      data: data,
-      url: 'https://classcast-198812.appspot.com/users/createCourse',
-    };
-    axios(options); 
-
-
-    axios.defaults.headers.post['Content-Type'] = 'application/json';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.post(`https://classcast-198812.appspot.com/users/createCourse`, data)
-      .then((response) => response.data)
-      .catch((error) => error);
-
 
   }
 
